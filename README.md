@@ -18,7 +18,7 @@ VPN Gate TUI is an open-source Python terminal app built with [Textual](https://
 - **VPN server ping and stability tests:** Compares latency, jitter, lost responses, and repeated multi-round measurements.
 - **Ranking tailored to networks in Iran:** Estimates server suitability based on latency, jitter, loss, advertised speed, load, protocol and port.
 - **Optional real OpenVPN connection test:** Uses a separately installed OpenVPN executable and may perform a small throughput check.
-- **Free OpenVPN configuration downloads:** Saves original or timeout-tuned \`.ovpn\` files and up to ten top-ranked working profiles.
+- **Free OpenVPN configuration downloads:** Saves original or timeout-tuned `.ovpn` files and up to ten top-ranked working profiles.
 - **Terminal OpenVPN connection:** Connect to a selected server or have the app try the best candidates.
 - **Search and filters:** Find servers by country, IP or hostname; filter TCP/UDP, TCP/443, SSTP, L2TP, OpenVPN, favorites and blacklist.
 - **History and export:** Saves test history to SQLite and exports CSV/JSON.
@@ -32,34 +32,34 @@ Download the correct archive from the [GitHub Releases page](https://github.com/
 
 | Operating system | Download asset |
 | --- | --- |
-| Windows 10/11 x64 | \`vpngate-tui-windows-x64.zip\` |
-| Linux / Ubuntu x64 | \`vpngate-tui-linux-x64.tar.gz\` |
-| Linux ARM64 | \`vpngate-tui-linux-arm64.tar.gz\` |
-| macOS Intel | \`vpngate-tui-macos-intel.tar.gz\` |
-| macOS Apple Silicon | \`vpngate-tui-macos-arm64.tar.gz\` |
+| Windows 10/11 x64 | `vpngate-tui-windows-x64.zip` |
+| Linux / Ubuntu x64 | `vpngate-tui-linux-x64.tar.gz` |
+| Linux ARM64 | `vpngate-tui-linux-arm64.tar.gz` |
+| macOS Intel | `vpngate-tui-macos-intel.tar.gz` |
+| macOS Apple Silicon | `vpngate-tui-macos-arm64.tar.gz` |
 
-Extract the archive and run **from your terminal**: \`vpngate-tui.exe\` on Windows or \`./vpngate-tui\` on Linux/macOS. On Unix, run \`chmod +x vpngate-tui\` if needed.
+Extract the archive and run **from your terminal**: `vpngate-tui.exe` on Windows or `./vpngate-tui` on Linux/macOS. On Unix, run `chmod +x vpngate-tui` if needed.
 
 These are standalone **terminal executables**, not graphical desktop installers. Python is not needed for binary releases. Publishing assets depends on successful GitHub Actions builds. Binaries are not commercially code-signed, so operating-system warnings may appear.
 
-> **Connect / Auto-best / Deep test:** Requires an **OpenVPN command-line client installed separately**, and sufficient OS privileges to create a VPN tunnel. Scanning and downloading \`.ovpn\` profiles do not require OpenVPN.
+> **Connect / Auto-best / Deep test:** Requires an **OpenVPN command-line client installed separately**, and sufficient OS privileges to create a VPN tunnel. Scanning and downloading `.ovpn` profiles do not require OpenVPN.
 
 ## Install from source
 
 Requires **Python 3.10+** and a suitable terminal.
 
-\`\`\`bash
+```bash
 git clone https://github.com/Trueness04/vpngate_tui.git
 cd vpngate_tui
 python -m pip install -r requirements.txt
 python vpngate_tui.py
-\`\`\`
+```
 
-On Linux, use \`python3\` if \`python\` is unavailable; on Windows, \`py\` may be available.
+On Linux, use `python3` if `python` is unavailable; on Windows, `py` may be available.
 
 ### Proxy, custom mirror and offline CSV import
 
-\`\`\`bash
+```bash
 # SOCKS5 proxy for fetching mirror/server lists
 python vpngate_tui.py --proxy socks5://127.0.0.1:1080
 
@@ -74,41 +74,41 @@ python vpngate_tui.py --out ./downloads
 
 # See all options
 python vpngate_tui.py --help
-\`\`\`
+```
 
-**Proxy scope:** \`--proxy\` applies to HTTP mirror and server-list downloads only. Direct server probes and OpenVPN tunnels do **not** use that HTTP/SOCKS proxy.
+**Proxy scope:** `--proxy` applies to HTTP mirror and server-list downloads only. Direct server probes and OpenVPN tunnels do **not** use that HTTP/SOCKS proxy.
 
 ## Keyboard shortcuts
 
 | Key | Action |
 | --- | --- |
-| \`r\` | Refresh daily server list |
-| \`t\` | Quick test servers |
-| \`u\` | Run multi-round stability test |
-| \`g\` / \`d\` | Deep test top candidates / selected server |
-| \`a\` | Find and connect to a best-ranked OpenVPN server |
-| \`s\` / \`Ctrl+S\` | Save selected \`.ovpn\` / top ten tested configs |
-| \`/\` | Search country, IP or hostname |
-| \`p\` | Cycle filters |
-| \`1\`–\`5\` | Sort by score, ping, jitter, speed, country |
-| \`f\` / \`x\` | Toggle favorite / blacklist |
-| \`l\` / \`k\` | Show L2TP/IPsec / SSTP connection details |
-| \`e\` | Export CSV and JSON |
-| \`F2\` | Cycle terminal themes |
-| \`z\` / \`q\` | Stop current test / quit |
-| \`Enter\` on a row | Open server actions menu |
+| `r` | Refresh daily server list |
+| `t` | Quick test servers |
+| `u` | Run multi-round stability test |
+| `g` / `d` | Deep test top candidates / selected server |
+| `a` | Find and connect to a best-ranked OpenVPN server |
+| `s` / `Ctrl+S` | Save selected `.ovpn` / top ten tested configs |
+| `/` | Search country, IP or hostname |
+| `p` | Cycle filters |
+| `1`–`5` | Sort by score, ping, jitter, speed, country |
+| `f` / `x` | Toggle favorite / blacklist |
+| `l` / `k` | Show L2TP/IPsec / SSTP connection details |
+| `e` | Export CSV and JSON |
+| `F2` | Cycle terminal themes |
+| `z` / `q` | Stop current test / quit |
+| `Enter` on a row | Open server actions menu |
 
 ## Troubleshooting and FAQ
 
-**How do I find free OpenVPN servers that work from Iran?** Refresh the VPN Gate server list, press \`t\` to test, sort by ping or score, and press \`s\` to save a selected \`.ovpn\` file. Results depend on the local network.
+**How do I find free OpenVPN servers that work from Iran?** Refresh the VPN Gate server list, press `t` to test, sort by ping or score, and press `s` to save a selected `.ovpn` file. Results depend on the local network.
 
-**No servers listed?** Mirror sources may be filtered, outdated or offline. Try \`--proxy\`, a trusted \`--mirror\` or \`--import\` with a previously saved VPN Gate CSV.
+**No servers listed?** Mirror sources may be filtered, outdated or offline. Try `--proxy`, a trusted `--mirror` or `--import` with a previously saved VPN Gate CSV.
 
-**A server was found but won't connect?** Being listed is not proof of a functional VPN. Test with \`t\`, then \`d\` for an authenticated OpenVPN connection attempt, provided the CLI is installed.
+**A server was found but won't connect?** Being listed is not proof of a functional VPN. Test with `t`, then `d` for an authenticated OpenVPN connection attempt, provided the CLI is installed.
 
 **OpenVPN is missing?** Install the OpenVPN CLI separately and ensure it is on PATH. Connecting may also require administrative permissions.
 
-**Where are app files stored?** Cache, preferences, mirror overrides and SQLite history default to \`~/.config/vpngate-tui/\`. Set \`VPNGATE_TUI_HOME\` to override. Downloaded configs and exports go to \`~/Downloads\` or \`~/vpngate\`, unless set via \`--out\`.
+**Where are app files stored?** Cache, preferences, mirror overrides and SQLite history default to `~/.config/vpngate-tui/`. Set `VPNGATE_TUI_HOME` to override. Downloaded configs and exports go to `~/Downloads` or `~/vpngate`, unless set via `--out`.
 
 **Does this app provide its own VPN servers?** No. It searches and tests third-party VPN Gate volunteer servers and can use the installed OpenVPN CLI to connect.
 
